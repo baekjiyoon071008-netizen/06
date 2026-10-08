@@ -1,18 +1,36 @@
-#include <stdio.h>
+ #include<stdio.h>
 
-int sumTwo(int a, int b)
+int factorial(int a)
 {
-    return a + b;
+    int i;
+    int res = 1;
+    for (i=1;i<=a; i++)
+    {
+        res = res * i;
+    }
+    return res;
+}
+
+int combination(int n, int r)
+{
+    int up, down;
+    up = factorial(n);
+    down = factorial(n-r) * factorial(r);
+    return (up/down);
 }
 
 int main(void)
 {
-    int a, b;
+    int result;
+    int n, r;
 
-    printf("Enter two integers: ");
-    scanf("%d %d", &a, &b);
+    printf("input n :");
+    scanf("%i", &n);
+    printf("input r :");
+    scanf("%i", &r);
 
-    printf("Result: %d\n", sumTwo(a, b));
+    result = combination(n, r);
+    printf("The combination result is %i\n", result);
 
     return 0;
 }
